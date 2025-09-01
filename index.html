@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>クイック TODO - 超短期TODOリスト</title>
+    <meta
+      name="description"
+      content="買い物前の5分で使える、シンプルで高速なTODOリスト"
+    />
+
+    <!-- PWA対応 -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- セキュリティ -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';"
+    />
+  </head>
+  <body>
+    <!-- メインコンテナ -->
+    <main class="app-container" role="main">
+      <!-- 全削除ボタン -->
+      <button
+        type="button"
+        id="clear-all-btn"
+        class="clear-all-button hidden"
+        title="すべてのタスクを削除"
+      >
+        全削除
+      </button>
+
+      <!-- TODOリスト -->
+      <section class="todo-section">
+        <ul id="todo-list" class="todo-list">
+          <!-- TODOアイテムはJavaScriptで動的生成 -->
+        </ul>
+
+        <!-- 空の状態メッセージ -->
+        <div id="empty-state" class="empty-state">
+          <p class="empty-message">
+            <span class="empty-icon">📝</span>
+            タスクを追加してみましょう
+          </p>
+        </div>
+      </section>
+
+      <!-- 入力エリア -->
+      <section class="input-section">
+        <div class="input-container">
+          <input
+            type="text"
+            id="todo-input"
+            class="todo-input"
+            placeholder="牛乳,パン,卵 または 牛乳，パン，卵 または 牛乳、パン、卵...（カンマ・読点区切りで一括追加）"
+            maxlength="500"
+            autocomplete="off"
+            inputmode="text"
+          />
+          <button
+            type="button"
+            id="add-btn"
+            class="add-button"
+            title="タスクを追加（Enter）"
+          >
+            <span class="add-icon">+</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
