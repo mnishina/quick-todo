@@ -62,9 +62,10 @@
 
 ### フロントエンド技術スタック
 - **HTML5**: マークアップ
-- **CSS3**: モダンレイアウト（Grid/Flexbox）
-- **Vanilla JavaScript (ES6+)**: フレームワーク不使用
+- **CSS3**: モダンレイアウト（Grid/Flexbox）、CSS Variables
+- **Vanilla JavaScript (ES6+)**: フレームワーク不使用、クラス構文
 - **localStorage API**: データ永続化
+- **PWA**: Service Worker、Web App Manifest
 
 ### 対応ブラウザ（モバイルファースト）
 - Chrome 80+
@@ -180,6 +181,11 @@ class InputProcessor {
    - Service Worker
    - Web App Manifest
 
+3. **開発環境最適化**
+   - キャッシュ無効化設定
+   - CORS対応
+   - 開発用スクリプト追加
+
 ### フェーズ3: 最適化・テスト (半日)
 1. **パフォーマンス最適化**
    - コード最小化
@@ -198,15 +204,15 @@ class InputProcessor {
 quick-todo-app/
 ├── index.html          # メインHTML
 ├── styles/
-│   └── main.css       # メインCSS
+│   └── main.css       # メインCSS（CSS Variables対応）
 ├── scripts/
-│   ├── main.js        # メインJS
+│   ├── main.js        # メインJS（クラス構文）
 │   └── storage.js     # データ管理
-├── sw.js              # Service Worker
+├── sw.js              # Service Worker（PWA対応）
 ├── manifest.json      # PWA Manifest
+├── package.json       # 依存関係・スクリプト定義
 ├── icons/            # アプリアイコン
-│   ├── icon-192.png
-│   └── icon-512.png
+│   └── icon-192.svg  # SVGアイコン
 └── README.md         # 開発ドキュメント
 ```
 
@@ -241,6 +247,11 @@ quick-todo-app/
 - 静的ファイルホスティング（Netlify, Vercel等）
 - CDN配信推奨
 - HTTPS設定必須
+
+### 開発環境
+- **開発サーバー**: `npm run dev`（キャッシュ無効化、CORS対応）
+- **本番サーバー**: `npm start`（標準設定）
+- **ポート**: 3000番
 
 ### 監視・分析
 - Google Analytics（オプション）
