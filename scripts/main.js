@@ -159,30 +159,13 @@ class TodoApp {
    */
   handleCompositionEnd(event) {
     this.isComposing = false
-
-    // IME確定後に区切り文字が入力された場合のヒント表示
-    setTimeout(() => {
-      const text = this.elements.todoInput.value
-      if (text.includes('，') || text.includes('、') || text.includes(',')) {
-        const hint =
-          'カンマ（,，）または読点（、）区切りで複数のタスクを追加できます'
-        this.announce(hint)
-      }
-    }, 100)
   }
 
   /**
    * 入力欄ペースト処理
    */
   handleInputPaste(event) {
-    setTimeout(() => {
-      const text = this.elements.todoInput.value
-      if (text.includes(',') || text.includes('，') || text.includes('、')) {
-        const hint =
-          'カンマ（,，）または読点（、）区切りで複数のタスクを追加できます'
-        this.announce(hint)
-      }
-    }, 100)
+    // ペースト処理（必要に応じて追加の処理を実装）
   }
 
   /**
@@ -259,7 +242,6 @@ class TodoApp {
       const items = InputProcessor.parseInput(inputText)
 
       if (items.length === 0) {
-        this.announce('有効なタスクが入力されていません')
         return
       }
 
@@ -282,7 +264,6 @@ class TodoApp {
       }
     } catch (error) {
       console.error('Failed to add todos:', error)
-      this.announce('タスクの追加中にエラーが発生しました')
     } finally {
       this.elements.addBtn.disabled = false
     }
