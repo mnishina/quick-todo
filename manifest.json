@@ -1,6 +1,6 @@
 {
-  "name": "クイック TODO",
-  "short_name": "クイック TODO",
+  "name": "Quick TODO",
+  "short_name": "Quick TODO",
   "description": "買い物前の5分で使える、シンプルで高速なTODOリスト",
   "start_url": "./",
   "display": "standalone",

@@ -1,7 +1,7 @@
 {
   "name": "quick-todo",
   "version": "1.0.0",
-  "description": "クイック TODO - 超短期TODOリスト",
+  "description": "Quick TODO",
   "main": "index.html",
   "scripts": {
     "start": "npx http-server . -p 3000",

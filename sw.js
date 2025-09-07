@@ -1,5 +1,5 @@
 /**
- * クイック TODO アプリ - Service Worker
+ * Quick TODO アプリ - Service Worker
  * PWA対応、オフラインキャッシュ、自動更新機能
  */
 
@@ -221,7 +221,7 @@ self.addEventListener('push', event => {
     ],
   }
 
-  event.waitUntil(self.registration.showNotification('クイック TODO', options))
+  event.waitUntil(self.registration.showNotification('Quick TODO', options))
 })
 
 /**

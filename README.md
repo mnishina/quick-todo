@@ -1,4 +1,4 @@
-# クイック TODO アプリ
+# Quick TODO アプリ
 
 > 買い物前の5分で使える、シンプルで高速なTODOリスト
 
@@ -42,24 +42,24 @@ quick-todo-app/
 
 ```css
 :root {
-    /* カラーパレット - モノクロベース */
-    --color-primary: #000000;        /* メインカラー（黒） */
-    --color-success: #000000;        /* 成功・完了カラー（黒） */
-    --color-danger: #000000;         /* 削除・警告カラー（黒） */
-    --color-background: #ffffff;     /* 背景色（白） */
-    
-    /* スペーシング */
-    --space-sm: 8px;                 /* 小スペース */
-    --space-md: 16px;                /* 中スペース */
-    --space-lg: 24px;                /* 大スペース */
-    
-    /* タイポグラフィ */
-    --font-size-base: 16px;          /* ベースフォントサイズ */
-    --font-size-xl: 24px;            /* ヘッダーサイズ */
-    
-    /* レイアウト */
-    --container-width: 560px;        /* コンテナ幅 */
-    --border-radius: 12px;           /* 角丸サイズ */
+  /* カラーパレット - モノクロベース */
+  --color-primary: #000000; /* メインカラー（黒） */
+  --color-success: #000000; /* 成功・完了カラー（黒） */
+  --color-danger: #000000; /* 削除・警告カラー（黒） */
+  --color-background: #ffffff; /* 背景色（白） */
+
+  /* スペーシング */
+  --space-sm: 8px; /* 小スペース */
+  --space-md: 16px; /* 中スペース */
+  --space-lg: 24px; /* 大スペース */
+
+  /* タイポグラフィ */
+  --font-size-base: 16px; /* ベースフォントサイズ */
+  --font-size-xl: 24px; /* ヘッダーサイズ */
+
+  /* レイアウト */
+  --container-width: 560px; /* コンテナ幅 */
+  --border-radius: 12px; /* 角丸サイズ */
 }
 ```
 
@@ -67,8 +67,6 @@ quick-todo-app/
 
 1. `styles/main.css` の `:root` セクションでCSS Variablesを編集
 2. カスタムテーマ: 新しいCSS Variables セットを作成
-
-
 
 ## 💾 データ構造
 
@@ -99,30 +97,30 @@ quick-todo-app/
 
 ```javascript
 // データ読み込み・保存
-TodoStorage.load()                    // データ読み込み
-TodoStorage.save(data)                // データ保存
+TodoStorage.load() // データ読み込み
+TodoStorage.save(data) // データ保存
 
 // アイテム操作
-TodoStorage.addItem(text)             // 単一アイテム追加
-TodoStorage.addItems(textArray)       // 複数アイテム一括追加
-TodoStorage.updateItem(id, updates)   // アイテム更新
-TodoStorage.deleteItem(id)            // アイテム削除
+TodoStorage.addItem(text) // 単一アイテム追加
+TodoStorage.addItems(textArray) // 複数アイテム一括追加
+TodoStorage.updateItem(id, updates) // アイテム更新
+TodoStorage.deleteItem(id) // アイテム削除
 
 // 一括操作
-TodoStorage.clearAll()                // 全アイテム削除
+TodoStorage.clearAll() // 全アイテム削除
 
 // 統計・ユーティリティ
-TodoStorage.exportData()              // データエクスポート
-TodoStorage.importData(jsonString)    // データインポート
+TodoStorage.exportData() // データエクスポート
+TodoStorage.importData(jsonString) // データインポート
 ```
 
 #### InputProcessor クラス
 
 ```javascript
 // 入力処理
-InputProcessor.parseInput(text)       // 区切り文字列を配列に変換（カンマ・読点・混在対応）
-InputProcessor.sanitizeItem(text)     // 個別アイテムのサニタイゼーション
-InputProcessor.escapeHtml(text)       // HTMLエスケープ（XSS対策）
+InputProcessor.parseInput(text) // 区切り文字列を配列に変換（カンマ・読点・混在対応）
+InputProcessor.sanitizeItem(text) // 個別アイテムのサニタイゼーション
+InputProcessor.escapeHtml(text) // HTMLエスケープ（XSS対策）
 ```
 
 ## 🔧 カスタマイズガイド
@@ -130,28 +128,31 @@ InputProcessor.escapeHtml(text)       // HTMLエスケープ（XSS対策）
 ### 1. スタイリングの変更
 
 **基本カラーの変更**:
+
 ```css
 /* styles/main.css の :root セクション */
 :root {
-    --color-primary: #your-color;
+  --color-primary: #your-color;
 }
 ```
 
 **レイアウト幅の調整**:
+
 ```css
 :root {
-    --container-width: 800px; /* デフォルト: 560px */
+  --container-width: 800px; /* デフォルト: 560px */
 }
 ```
 
 ### 2. 機能の拡張
 
 **新しいイベントハンドラーの追加**:
+
 ```javascript
 // scripts/main.js の TodoApp クラス内
 bindEvents() {
     // 既存のイベントバインド
-    
+
     // 新しいイベントを追加
     document.addEventListener('keydown', this.handleKeyboardShortcut.bind(this));
 }
@@ -162,6 +163,7 @@ handleKeyboardShortcut(event) {
 ```
 
 **データフィールドの追加**:
+
 ```javascript
 // scripts/storage.js の validateItem メソッド
 static validateItem(item) {
@@ -180,21 +182,23 @@ static validateItem(item) {
 ### 3. PWA設定のカスタマイズ
 
 **アプリ名・説明の変更**:
+
 ```json
 // manifest.json
 {
-    "name": "あなたのアプリ名",
-    "short_name": "短い名前",
-    "description": "アプリの説明"
+  "name": "あなたのアプリ名",
+  "short_name": "短い名前",
+  "description": "アプリの説明"
 }
 ```
 
 **テーマカラーの変更**:
+
 ```json
 // manifest.json
 {
-    "theme_color": "#your-color",
-    "background_color": "#your-background"
+  "theme_color": "#your-color",
+  "background_color": "#your-background"
 }
 ```
 
@@ -232,9 +236,9 @@ open http://localhost:3000
 
 ```javascript
 // コンソールでのデバッグ
-todoApp.getDebugInfo()              // アプリ状態確認
-TodoStorage.getDebugInfo()          // ストレージ状態確認
-TodoStorage.exportData()            // データエクスポート
+todoApp.getDebugInfo() // アプリ状態確認
+TodoStorage.getDebugInfo() // ストレージ状態確認
+TodoStorage.exportData() // データエクスポート
 ```
 
 ### PWA動作確認
@@ -246,18 +250,20 @@ TodoStorage.exportData()            // データエクスポート
 ### クロスブラウザテスト
 
 - **Chrome 80+** ✅
-- **Firefox 75+** ✅  
+- **Firefox 75+** ✅
 - **Safari 13+** ✅
 - **Edge 80+** ✅
 
 ## 🔒 セキュリティ
 
 ### XSS対策
+
 - `innerHTML` 使用禁止
 - `InputProcessor.escapeHtml()` による出力エスケープ
 - CSP (Content Security Policy) 設定済み
 
 ### データ保護
+
 - すべてローカル保存、外部送信なし
 - 入力値サニタイゼーション実装済み
 
